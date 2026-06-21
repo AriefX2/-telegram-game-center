@@ -1,15 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
 <title>Snake</title>
+
 <style>
-body{text-align:center;}
+body{
+text-align:center;
+font-family:Arial;
+}
+
 canvas{
 border:2px solid black;
 }
 </style>
 </head>
+
 <body>
+
+<a href="index.html">🏠 Home</a>
 
 <h1>🐍 Snake</h1>
 
@@ -21,6 +30,7 @@ const ctx=canvas.getContext("2d");
 
 let snake=[{x:10,y:10}];
 let food={x:15,y:15};
+
 let dx=1;
 let dy=0;
 
@@ -32,6 +42,7 @@ if(e.key==="ArrowRight"){dx=1;dy=0;}
 });
 
 function draw(){
+
 ctx.clearRect(0,0,400,400);
 
 snake.unshift({
@@ -52,12 +63,23 @@ snake.pop();
 }
 
 ctx.fillStyle="green";
+
 snake.forEach(s=>{
-ctx.fillRect(s.x*20,s.y*20,18,18);
+ctx.fillRect(
+s.x*20,
+s.y*20,
+18,
+18
+);
 });
 
 ctx.fillStyle="red";
-ctx.fillRect(food.x*20,food.y*20,18,18);
+ctx.fillRect(
+food.x*20,
+food.y*20,
+18,
+18
+);
 }
 
 setInterval(draw,150);
