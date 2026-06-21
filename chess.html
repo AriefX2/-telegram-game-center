@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Chess</title>
 
 <link rel="stylesheet"
@@ -9,18 +10,21 @@ href="https://cdnjs.cloudflare.com/ajax/libs/chessboard.js/1.0.0/chessboard-1.0.
 
 <style>
 body{
-text-align:center;
 font-family:Arial;
+text-align:center;
+padding:20px;
 }
 
 #board{
 width:350px;
-margin:20px auto;
+margin:auto;
 }
 </style>
 </head>
 
 <body>
+
+<a href="index.html">🏠 Home</a>
 
 <h1>♟️ Chess</h1>
 
@@ -33,20 +37,21 @@ margin:20px auto;
 <script>
 var game = new Chess();
 
-var board = Chessboard('board', {
-draggable: true,
-position: 'start',
+var board = Chessboard('board',{
+draggable:true,
+position:'start',
 
-onDrop: function(source, target) {
+onDrop:function(source,target){
 
 var move = game.move({
-from: source,
-to: target,
-promotion: 'q'
+from:source,
+to:target,
+promotion:'q'
 });
 
-if(move === null)
+if(move===null){
 return 'snapback';
+}
 }
 });
 </script>
